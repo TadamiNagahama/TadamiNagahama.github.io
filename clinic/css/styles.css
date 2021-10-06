@@ -1,8 +1,34 @@
 @charset "UTF-8";
 
-html{
+/***************************
+Basic
+***************************/
+:root{
   font-size: 100%;
+  --my-hue: 190;    /*基調は青*/
 }
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body{
+  height: 100%;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  
+  /*ここからスクロールバーを消す処理*/
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;       /* Firefox 対応 */
+}
+body::-webkit-scrollbar {  /* Chrome, Safari 対応 */
+  display:none;
+}
+/*ここまでがスクロールバーを消す処理*/
+
 a{
   text-decoration: none;
   color: inherit;
@@ -14,17 +40,779 @@ img{
 li{
   list-style: none;
 }
-*{
-  box-sizing: border-box;
+
+/***************************
+Color
+***************************/
+body{
+  background: hsl(var(--my-hue), 40%, 90%);
+  margin: 0;
+  padding: 0;
+}
+h1,h2,h3,h4,h5,h6,p,ul{
+  color: hsl(var(--my-hue), 35%, 45%);
+}
+
+/***************************
+Common
+***************************/
+.wrapper{
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 
 
-h1{
-  /* text-align: center; */
-  font-size: 2rem;
-  color: pink;
+
+/***************************
+Header
+***************************/
+header{
+  margin-top: 10px;
 }
-p{
-  /* text-align: center; */
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
+.header-logo{
+  width: 45%;
+  background: hsl(var(--my-hue), 65%, 75%);
+  padding: 15px 20px 0;
+  border-radius: 30px;
+}
+.header-logo h1{
+  font-size: 2.5rem;
+  margin: 0;
+  line-height: 2.5rem;
+}
+.header-logo p{
+  margin-top: 0;
+}
+.header-tel{
+  width: 30%;
+}
+.header-tel p{
+  font-size: 0.8125rem;
+  margin: 0;
+}
+.header-tel h2{
+  margin: 0;
+}
+.header-time{
+  width: 25%;
+  font-size: 0.8125rem;
+}
+.header-time ul,
+.header-time ul li{
+  margin: 0;
+}
+.red{
+  color: red;
+}
+
+/***************************
+Header Navi
+***************************/
+.navi{
+  width: 100%;
+  background: rgb(58,171,210);
+  margin-top: 50px;
+}
+nav ul{
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+nav ul li{
+  width: 160px;
+  height: 75px;
+  text-align: center;
+  /* line-height: 80px; */
+  position: relative;
+  border-left: 1px solid white;
+}
+nav ul li:last-child{
+  border-right: 1px solid white;
+}
+nav ul li:hover{
+  background: rgb(36,105,128);
+}
+nav ul li.active{
+  background: rgb(36,105,128);
+}
+
+.navi-image{
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  border: 4px solid rgb(58,171,210);
+  border-radius: 50%;
+  background: white;
+  top: -40px;
+  left: calc(50% - 40px);
+}
+.navi-image img{
+  height: 54px;
+  width: 54px;
+  position: absolute;
+}
+.navi-image .ni1{
+  top: 5px;
+  left: 9px;
+}
+.navi-image .ni2{
+  top: 12px;
+  left: 9px;
+}
+.navi-image .ni3{
+  top: 9px;
+  left: 9px;
+}
+.navi-image .ni4{
+  top: 8px;
+  left: 9px;
+}
+.navi-image .ni5{
+  top: 8px;
+  left: 10px;
+}
+nav ul li p{
+  color: white;
+  padding-top: 44px;
+}
+
+/***************************
+main
+***************************/
+main{
+  width: 100%;
+  flex-grow: 1;
+}
+.main-container{
+  display: flex;
+  height: 100%;
+}
+aside{
+  width: 30%;
+  background: hsl(var(--my-hue), 50%, 70%);
+  text-align: center;
+  padding-bottom: 30px;
+}
+section{
+  width: 70%;
+  background: hsl(var(--my-hue), 60%, 80%);
+  
+}
+
+.list a{
+  text-decoration: underline;
+}
+.list{
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 0.875rem;
+}
+.list span{
+  display: inline-block;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+
+
+/***************************
+Aside - Calendar
+***************************/
+aside h2{
+  padding: 15px 0 10px 0;;
+}
+.cal-wrap{
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
+.cal{
+  /* background: #eee; */
+  background: #fff;
+  padding-bottom: 10px;
+}
+.cal table{
+  width: 95%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.cal th{
+  background: #ddd;
+}
+.cal td{
+  background: #fff;
+}
+.cal th,
+.cal td{
+  border: 1px solid #aaa;
+}
+.cal .cal-sut{
+  background: hsl(var(--my-hue), 60%, 75%);
+}
+.cal .cal-rest{
+  background: pink;
+}
+.cal caption{
+  font-size: 1.25rem;
+}
+
+
+/***************************
+Section - Main(Index.html)
+***************************/
+section{
+  text-align: center;
+  padding-bottom: 40px;
+}
+section h2{
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+.consul table{
+  width: 400px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.consul tr:nth-child(1){
+  background: #aaa;  
+}
+.consul tr:nth-child(2){
+  background: #eee;  
+}
+.consul tr:nth-child(3){
+  background: #ccc;  
+}
+.consul-day{
+  width: 40px;
+}
+.consul tr{
+  height: 40px;
+}
+.consul th,
+.consul td{
+  border: 1px solid #000;
+  font-weight: bold;
+}
+
+.consul-news{
+  width: 100%;
+}
+.consul-news dl{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+.consul-news dt{
+  width: calc(30% - 10px);
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 10px 0 10px 10px;
+  text-align: left;
+  border-bottom: 1px dotted #333;
+}
+.consul-news dd:nth-child(even){
+  width: 60%;
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px 0 10px 0;
+  text-align: left;
+  border-bottom: 1px dotted #333;
+}
+.consul-news dd:nth-child(odd){
+  width: 5%;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: right;
+  border-bottom: 1px dotted #333;
+  cursor: pointer;
+  line-height: 2.5rem;
+}
+.consul-news p{
+  width: 90%;
+  padding-left: 10%;
+  padding-bottom: 20px;
+  font-size: 0.875rem;
+  text-align: left;
+  color: #000;
+  display: none;
+}
+.consul-news p.active{
+  display: block;
+}
+
+/***************************
+Common - Nyuin & First & Access & Top
+***************************/
+.top-container,
+.first-container,
+.access-container,
+.nyuin-container{
+  text-align: left;
+  margin-bottom: 30px;
+  width: 95%;
+  margin: 0 auto;
+  position: relative;
+}
+.top-container h3,
+.first-container h3,
+.access-container h3,
+.test-container h3,
+.nyuin-container h3{
+  /* margin-left: 15px; */
+  padding-left: 5px;
+  border-left: 5px solid white;
+  border-bottom: 1px solid white;
+}
+.top-container p,
+.top-container ul,
+.top-container ol,
+.first-container p,
+.first-container ul,
+.first-container ol,
+.access-container p,
+.access-container ul,
+.access-container ol,
+.nyuin-container p,
+.nyuin-container ul,
+.nyuin-container ol{
+  font-size: 0.8125rem;
+  color: black;
+}
+.first-container ul li::before,
+.first-container ol li::before,
+.nyuin-container ul li::before,
+.nyuin-container ol li::before{
+  content: '・'
+}
+.top-contents,
+.first-contents,
+.access-contents,
+.nyuin-contents{
+  margin: 10px 0 25px 10px;
+}
+
+.first-img-wrapper,
+.nyuin-img-wrapper{
+  position: absolute;
+  background: white;
+  border: 3px solid rgb(58,171,210);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  /* right: 20px; */
+}
+
+
+/***************************
+Top
+***************************/
+.top-image{
+  width: 95%;
+  margin-bottom: 40px;
+}
+.president-name{
+  margin-bottom: 10px;
+  text-align: right;
+}
+.president-image{
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+.president-image::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: inset 0 0 15px 15px hsl(var(--my-hue), 60%, 80%);
+}
+
+.top-container span{
+  font-weight: bold;
+  font-size: 1rem;
+}
+.facility{
+  display: flex;
+  justify-content: space-evenly;
+}
+.facility figure{
+  width: 45%;
+}
+.facility figure img{
+  width: 100%;
+  /* max-height: 150px; */
+  object-fit: cover;
+}
+.facility figcaption{
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+/***************************
+Nyuin（入院）
+***************************/
+.nyu-img1{
+  top: -20px;
+  left: 110px;
+}
+.nyu-img2{
+  top: -60px;
+  left: 62%;
+}
+.nyu-img3{
+  top: -62px;
+  left: 68%;
+}
+.nyu-img4{
+  top: -60px;
+  left: 65%;
+}
+.nyu-img-bed{
+  position: absolute;
+  top: 7px;
+  left: 8px;
+  width: 40px;
+  height: 40px;
+}
+.nyu-img-memo{
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  width: 45px;
+  height: 45px;
+}
+.nyu-img-window{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 35px;
+  height: 35px;
+}
+.nyu-img-flower{
+  position: absolute;
+  top: 6px;
+  left: 5px;
+  width: 44px;
+  height: 44px;
+}
+
+
+/***************************
+First（初診）
+***************************/
+.fst-img1{
+  top: -20px;
+  left: 170px;
+}
+.fst-img2{
+  top: 160px;
+  left: 100px;
+}
+.fst-img-paper{
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 40px;
+  height: 40px;
+}
+.fst-img-memo{
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  width: 44px;
+  height: 44px;
+}
+
+/***************************
+Test（検診）
+***************************/
+.test-info,
+.test-info2{
+  width: 95%;
+  margin: 0 auto 50px;
+  text-align: left;
+}
+.test-info ul,
+.test-info p{
+  color: #333;
+  font-size: 0.8125rem;
+}
+.test-info p{
+  margin-top: 15px;
+}
+.test-info ul li{
+  margin: 10px 0 0 15px;
+}
+.test-info ul li::before{
+  content: '▶';
+}
+.test-info2 h4{
+  color: #333;
+  font-size: 0.875rem;
+  margin: 10px 0 10px 15px;
+}
+.test-info2 table{
+  width: 100%;
+  font-size: 0.875rem;
+  border: 1px solid #333;
+  border-collapse: collapse;
+}
+.test-info2 table th,
+.test-info2 table td{
+  border: 1px solid #333;
+  padding: 10px;
+}
+.test-info2 table th{
+  background: #ddd;
+  width: 25%;
+}
+.test-info2 table td{
+  background: white;
+}
+
+
+
+/***************************
+Access
+***************************/
+.access-container iframe{
+  width: 100%;
+  margin-bottom: 30px;
+}
+.parking-image{
+  width: 40%;
+  float: right;
+}
+.access-bus{
+  clear: both;
+}
+
+
+/***************************
+Footer
+***************************/
+footer{
+  margin-top: auto;
+  width: 100%;
+  background: rgb(58,171,210);
+  /* margin: 0; */
+  text-align: center;
+}
+footer p{
+  color: white;
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+
+
+
+
+/*******************************************
+@media （タブレット用） 600～800px
+*******************************************/
+@media screen and (min-width: 600px) and (max-width: 799px){
+  .wrapper{
+    width: 100%;
+  }
+  .header-container{
+    display: block;
+  }
+  .header-logo{
+    width: 95%;
+    margin: 0 auto;
+  }
+  .header-tel{
+    width: 100%;
+  }
+  .header-time{
+    display: none;
+  }
+  nav ul li{
+    width: 20%;
+  }
+  
+}
+
+
+
+/*******************************************
+@media （スマホ用） ～599px
+*******************************************/
+@media screen and (max-width: 599px){
+  .wrapper{
+    width: 100%;
+  }
+  .header-container{
+    display: block;
+  }
+  .header-logo{
+    width: 95%;
+    margin: 0 auto;
+  }
+  .header-tel{
+    width: 100%;
+  }
+  .header-time{
+    display: none;
+  }
+  nav ul li{
+    width: 20%;
+  }
+  
+
+/****** Header Navi ******/
+  .navi-image{
+    height: 60px;
+    width: 60px;
+    top: -30px;
+    left: calc(50% - 30px);
+  }
+  .navi-image img{
+    height: 38px;
+    width: 38px;
+  }
+  .navi-image .ni1{
+    top: 4px;
+    left: 7px;
+  }
+  .navi-image .ni2{
+    top: 9px;
+    left: 7px;
+  }
+  .navi-image .ni3{
+    top: 7px;
+    left: 7px;
+  }
+  .navi-image .ni4{
+    top: 8px;
+    left: 9px;
+  }
+  .navi-image .ni5{
+    top: 6px;
+    left: 8px;
+  }
+  nav ul li p{
+    font-size: 0.75rem;
+  }
+
+/****** Main ******/
+  .main-container{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  aside{
+    width: 100%;
+  }
+  section{
+    width: 100%;
+  }
+
+/****** Calendar ******/
+  .cal-contents{
+    display: flex;
+  }
+  .cal table{
+    margin: 0 10px;
+  }
+
+/****** 診療時間 ******/
+  .consul table{
+    width: 95%;
+  }
+  .consul-time{
+    width: 40%;
+  }
+  .consul-day{
+    width: 10%;
+  }
+
+/****** Common 初診・入院 ******/
+  .first-img-wrapper,
+  .nyuin-img-wrapper{
+    width: 48px;
+    height: 48px;
+    border: 3px solid rgb(58,171,210);
+  }
+/****** 入院 ******/
+  .nyu-img1{
+    top: -12px;
+    left: 110px;
+  }
+  .nyu-img2{
+    top: -55px;
+    left: 67%;
+  }
+  .nyu-img3{
+    top: -55px;
+    left: 76%;
+  }
+  .nyu-img4{
+    top: -55px;
+    left: 72%;
+  }
+  .nyu-img-bed{
+    top: 6px;
+    left: 6px;
+    width: 30px;
+    height: 30px;
+  }
+  .nyu-img-memo{
+    left: 4px;
+    width: 36px;
+    height: 36px;
+  }
+  .nyu-img-window{
+    top: 7px;
+    left: 7px;
+    width: 28px;
+    height: 28px;
+  }
+  .nyu-img-flower{
+    top: 4px;
+    left: 2px;
+    width: 36px;
+    height: 36px;
+  }
+/****** 初診 ******/
+  .fst-img1{
+    top: -10px;
+    left: 167px;
+  }
+  .fst-img2{
+    top: 214px;
+    left: 95px;
+  }
+  .fst-img-paper{
+    top: 6px;
+    left: 7px;
+    width: 30px;
+    height: 30px;
+  }
+  .fst-img-memo{
+    top: 3px;
+    left: 4px;
+    width: 36px;
+    height: 36px;
+  }
+
+
+
+}
+
+
+
