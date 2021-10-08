@@ -50,7 +50,7 @@ body{
   padding: 0;
 }
 h1,h2,h3,h4,h5,h6,p,ul{
-  color: hsl(var(--my-hue), 35%, 45%);
+  color: hsl(var(--my-hue), 35%, 30%);
 }
 
 /***************************
@@ -137,7 +137,7 @@ nav ul li:last-child{
   border-right: 1px solid white;
 }
 nav ul li:hover{
-  background: rgb(36,105,128);
+  background: rgba(36,105,128,0.5);
 }
 nav ul li.active{
   background: rgb(36,105,128);
@@ -310,7 +310,7 @@ section h2{
 .consul-news dl{
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 .consul-news dt{
@@ -334,11 +334,15 @@ section h2{
   width: 5%;
   font-size: 1rem;
   font-weight: bold;
-  text-align: right;
+  text-align: center;
   border-bottom: 1px dotted #333;
   cursor: pointer;
   line-height: 2.5rem;
 }
+.consul-news dd:nth-child(odd):hover{
+  background: hsl(var(--my-hue), 40%, 50%);
+}
+
 .consul-news p{
   width: 90%;
   padding-left: 10%;
@@ -348,9 +352,9 @@ section h2{
   color: #000;
   display: none;
 }
-.consul-news p.active{
+/* .consul-news p.active{
   display: block;
-}
+} */
 
 /***************************
 Common - Nyuin & First & Access & Top
@@ -623,9 +627,9 @@ footer p{
 
 
 /*******************************************
-@media （タブレット用） 600～800px
+@media （タブレット・スマホ共通） ～800px
 *******************************************/
-@media screen and (min-width: 600px) and (max-width: 799px){
+@media screen and (max-width: 799px){
   .wrapper{
     width: 100%;
   }
@@ -644,6 +648,46 @@ footer p{
   }
   nav ul li{
     width: 20%;
+  }
+  
+  /****** Main ******/
+  .main-container{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  aside{
+    width: 100%;
+  }
+  section{
+    width: 100%;
+  }
+
+}  
+/*******************************************
+@media （タブレット用） 600～800px
+*******************************************/
+@media screen and (min-width: 600px) and (max-width: 799px){
+/****** Calendar ******/
+  .cal-contents{
+    display: flex;
+  }
+  .cal table{
+    margin: 0 10px;
+  }
+
+/****** 診療時間 ******/
+  .consul table{
+    width: 75%;
+  }
+  .consul-time{
+    width: 40%;
+  }
+  .consul-day{
+    width: 10%;
+  }
+
+  .consul-news dl{
+    width: 80%;
   }
   
 }
@@ -654,7 +698,7 @@ footer p{
 @media （スマホ用） ～599px
 *******************************************/
 @media screen and (max-width: 599px){
-  .wrapper{
+  /* .wrapper{
     width: 100%;
   }
   .header-container{
@@ -673,7 +717,7 @@ footer p{
   nav ul li{
     width: 20%;
   }
-  
+   */
 
 /****** Header Navi ******/
   .navi-image{
@@ -711,7 +755,7 @@ footer p{
   }
 
 /****** Main ******/
-  .main-container{
+  /* .main-container{
     display: flex;
     flex-direction: column-reverse;
   }
@@ -720,15 +764,15 @@ footer p{
   }
   section{
     width: 100%;
-  }
+  } */
 
 /****** Calendar ******/
-  .cal-contents{
+  /* .cal-contents{
     display: flex;
   }
   .cal table{
     margin: 0 10px;
-  }
+  } */
 
 /****** 診療時間 ******/
   .consul table{
@@ -739,6 +783,12 @@ footer p{
   }
   .consul-day{
     width: 10%;
+  }
+
+/****** お知らせ ******/
+.consul-news dl{
+    width: 95%;
+    margin: 0 auto;
   }
 
 /****** Common 初診・入院 ******/
